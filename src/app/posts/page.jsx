@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 
 export const getPosts = async () => {
@@ -9,16 +10,21 @@ export const getPosts = async () => {
 export default async function Posts() {
     const posts = await getPosts();
   return (
-      <div className="grid grid-cols-4 gap-8">
+      <div className="grid grid-cols-4 gap-8  mt-12 container mx-auto">
           {
               posts.map((singlePost) => {
                   return (
-                      <div key={singlePost.id}>
-                          <p>{singlePost.title}</p>
-                          <p>{ singlePost.body}</p>
-                          
-                      </div>
-                  )
+                    <div
+                      key={singlePost.id}
+                      className="border-2 border-slate-300"
+                    >
+                      <h3 className="text-2xl font-bold">{singlePost.title}</h3>
+                      <p>{singlePost.body}</p>
+                      <button className="bg-blue-400 p-2 mt-2 text-white ">
+                        <Link href={`/posts/${singlePost.id}`}>Details</Link>
+                      </button>
+                    </div>
+                  );
               })
           }
     </div>
