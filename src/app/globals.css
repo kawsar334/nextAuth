@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.testing-purpose-css-class{
+    background: #3ea96b;
+    color: #3a2fd9;
+
+}
