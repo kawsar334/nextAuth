@@ -13,7 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Learning Next.JS",
+  title: {
+    default: "Learning NextJS",
+    template: "%s | Learning NextJS",
+  },
+  keywords: ["Next.js", "React", "JavaScript", "Learning", "PlayGround"],
   description: "Trying to learn NextJS as best as we can",
 };
 

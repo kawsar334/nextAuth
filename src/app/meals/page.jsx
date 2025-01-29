@@ -1,7 +1,12 @@
 
-import MealSearchInput from "@/components/MealSearchInput";
+import Link from "next/link";
+import MealSearchInput from "./components/MealSearchInput";
 
+export const metadata = {
+  title: "All Meals",
 
+  description: "Meals loaded form MealDB API",
+};
 
 
 export default async function MealsPage({searchParams}) {
@@ -27,16 +32,19 @@ export default async function MealsPage({searchParams}) {
 
     
   return (
-    <div className="bg-blue-300">
-    
+    <div className="">
+ 
       <MealSearchInput></MealSearchInput>
       
       <div className="grid grid-cols-4 gap-4">
-        {meals.map((singleMeal) => {
+        {meals?.map((singleMeal) => {
           return (
-            <div>
+            <div key={singleMeal.id}>
               <p>{singleMeal?.strMeal}</p>
               <p>{singleMeal?.strInstructions}</p>
+              <Link href={`/meals/${singleMeal.idMeal}`}>
+                <button className="bg-blue-300 p-2">Details</button>
+              </Link>
             </div>
           );
         })}

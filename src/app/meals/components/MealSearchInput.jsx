@@ -14,9 +14,9 @@ export default function MealSearchInput() {
     router.push(url);
   }, [search]);
   return (
-    <div>
+    <div className="flex justify-center mt-4">
       <input
-        className="text-black"
+        className="text-black border-2 "
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />

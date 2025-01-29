@@ -7,17 +7,21 @@ export const getPosts = async () => {
     const data = await res.json();
     return data;
 }
+export const metadata = {
+  title: "All Posts",
+  description: "Loading JSON plachholder posts using Server components",
+};
 
 export default async function Posts() {
     const posts = await getPosts();
   return (
-      <div className="grid  h-full grid-cols-4 gap-8  mt-12 container mx-auto">
+      <div className="grid   grid-cols-4 gap-8  mt-12 container mx-auto">
           {
               posts.map((singlePost) => {
                   return (
                     <div
                       key={singlePost.id}
-                      className="border-2 border-slate-300"
+                      className="border-2 "
                     >
                       <h3 className={`text-2xl font-bold ${style.title}`}>
                         {singlePost.title}
