@@ -1,3 +1,4 @@
+import { redirect } from 'next/navigation';
 import React from 'react'
 
 export default async function ProductsPage() {
@@ -5,6 +6,10 @@ export default async function ProductsPage() {
         cache: "force-cache"
     });
     const data = await res.json();
+
+    if (data?.data?.length > 3) {
+        redirect('/')
+    }
 
   return (
       <ul className='text-center mt-8'>
