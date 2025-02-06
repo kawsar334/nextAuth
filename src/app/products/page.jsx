@@ -2,9 +2,12 @@
 import React from 'react'
 
 export default async function ProductsPage() {
-    const res = await fetch(`http://localhost:3000/api/items`, {
-      cache: "force-cache",
-    });
+    const res = await fetch(
+      `https://bistro-boss-server-indol-five.vercel.app/api/items`,
+      {
+        cache: "force-cache",
+      }
+    );
     const data = await res.json();
 
     // if (data?.data?.length > 3) {
