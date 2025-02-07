@@ -1,6 +1,6 @@
 // import { redirect } from 'next/navigation';
 import React from 'react'
-
+// 
 export default async function ProductsPage() {
   const { NEXT_PUBLIC_SERVER_ADDRESS } = process.env;
     const res = await fetch(
