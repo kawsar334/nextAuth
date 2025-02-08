@@ -1,5 +1,5 @@
 import NextAuth from "next-auth"
-
+import CredentialsProvider from "next-auth/providers/credentials";
 const handler = NextAuth({
   providers: [
     CredentialsProvider({
@@ -12,8 +12,10 @@ const handler = NextAuth({
       credentials: {
         username: { label: "Username", type: "text", placeholder: "jsmith" },
         password: { label: "Password", type: "password" },
+        Email: { label: "email", type: "email" },
       },
-      async authorize(credentials, req) {
+        async authorize(credentials, req) {
+        //   console.log('credentials from auth',credentials);
         // Add logic here to look up the user from the credentials supplied
         const user = { id: "1", name: "J Smith", email: "jsmith@example.com" };
 

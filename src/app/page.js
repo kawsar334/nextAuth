@@ -1,9 +1,11 @@
-import Image from "next/image";
+import LoginBtn from "@/components/LoginBtn";
+
 
 export default function Home() {
   return (
-    <div>
-      <h1>Hello</h1>
+    <div className="flex items-center justify-center h-screen">
+      
+      <LoginBtn/>
    </div>
   );
 }
