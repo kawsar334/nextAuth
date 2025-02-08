@@ -1,5 +1,5 @@
 import LoginBtn from "@/components/LoginBtn";
-import UserInfo from "../../nextjs-data-fetching/src/components/UserInfo";
+import UserInfo from "@/components/UserInfo";
 
 
 export default function Home() {
