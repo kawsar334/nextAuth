@@ -29,6 +29,9 @@ const Navbar = () => {
                 <Link href="/about">
                   <li>About</li>
                 </Link>
+                <Link href="/register">
+                  <li>Register</li>
+                </Link>
               </ul>
             </div>
           );
