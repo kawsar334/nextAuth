@@ -25,12 +25,12 @@ export const authOptions = {
         // Email: { label: "email", type: "email" },
       },
       async authorize(credentials, req) {
-        //   console.log('credentials from auth',credentials);
+          console.log('credentials from auth',credentials);
         // Add logic here to look up the user from the credentials supplied
 
         const { username, password } = credentials;
-        const user = await dbConnect("test_user").findOne({ username });
-        const isPasswordOK = password == user.password;
+        const user = await dbConnect("TEST_USER").findOne({ username });
+        const isPasswordOK = password == user?.password;
 
         // const user = { id: "1", name: "J Smith", email: "jsmith@example.com" };
 
