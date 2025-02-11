@@ -1,11 +1,11 @@
 "use server";
 
-import dbConnect from "@/lib/dbConnect";
+import dbConnect, { collectionName } from "@/lib/dbConnect";
 
 export const registerUser = async (payload) => {
   try {
     // Need to check if unique username was given
-    const result = await dbConnect("TEST_USER").insertOne(payload);
+    const result = await dbConnect(collectionName.TEST_USER).insertOne(payload);
 
     // ObjectId কে String এ কনভার্ট করা
     return {

@@ -1,9 +1,9 @@
-import dbConnect from "@/lib/dbConnect";
+import dbConnect, { collectionName } from "@/lib/dbConnect";
 import { ObjectId } from "mongodb";
 
 export async function GET(req, {params}) {
     const p = await params;
-    const singleData = await dbConnect("practice_data").findOne({_id: new ObjectId(p)})
+    const singleData = await dbConnect(collectionName.PRACTICE_DATA).findOne({_id: new ObjectId(p)})
     console.log(p);
    
 
@@ -12,7 +12,7 @@ export async function GET(req, {params}) {
 export async function DELETE(req, {params}) {
   const p = await params;
     console.log(p);
-      const response = await dbConnect("practice_data").deleteOne({_id: new ObjectId(p)})
+      const response = await dbConnect(collectionName.PRACTICE_DATA).deleteOne({_id: new ObjectId(p)})
     console.log(p);
     
 
@@ -24,7 +24,7 @@ export async function PATCH(req, {params}) {
     
     const postdData = await req.json();
     const filter = { _id: new ObjectId(p.id) };
-    const updatedResponse = await dbConnect("practice_data").updateOne(
+    const updatedResponse = await dbConnect(collectionName.PRACTICE_DATA).updateOne(
       filter,
       {
         $set: { ...postdData },
