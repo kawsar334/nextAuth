@@ -2,6 +2,7 @@ import dbConnect, { collectionName } from "@/lib/dbConnect";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GitHubProvider from "next-auth/providers/github";
+import { signIn } from "next-auth/react";
 
 export const authOptions = {
   providers: [
@@ -60,6 +61,32 @@ export const authOptions = {
   ],
 
   callbacks: {
+    async signIn({ user, account, profile, email, credentials }) {
+      if (account) {
+        try {
+            // console.log('From Signin calback', user,account,profile,email,credentials);
+        const { providerAccountId, provider } = account;
+        const { email: user_email, image, name } = user;
+        const payload = { role: "user", providerAccountId, provider, user_email, image, name };
+          console.log("From Signin calback", payload);
+          
+          const userCollection = dbConnect(collectionName.TEST_USER);
+          const isUserExit = await userCollection.findOne({ providerAccountId });
+
+          if (!isUserExit) {
+            await userCollection.insertOne(payload)
+          }
+          
+        } catch (error) {
+          console.log(error);
+          return false;
+          
+        }
+      
+      }
+
+      return true;
+    },
     async session({ session, token, user }) {
       if (token) {
         session.user.username = token.username;
