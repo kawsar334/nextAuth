@@ -68,7 +68,7 @@ export const authOptions = {
         const { providerAccountId, provider } = account;
         const { email: user_email, image, name } = user;
         const payload = { role: "user", providerAccountId, provider, user_email, image, name };
-          console.log("From Signin calback", payload);
+          // console.log("From Signin calback", payload);
           
           const userCollection = dbConnect(collectionName.TEST_USER);
           const isUserExit = await userCollection.findOne({ providerAccountId });

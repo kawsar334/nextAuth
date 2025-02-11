@@ -6,7 +6,7 @@ import React from "react";
 export default function LogOutBtn() {
   return (
     <div>
-      <button onClick={() => signOut()}>LogOut</button>
+      <button className="bg-blue-700 text-white p-2 px-4" onClick={() => signOut()}>LogOut</button>
     </div>
   );
 }

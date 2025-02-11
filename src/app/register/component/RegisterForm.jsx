@@ -11,9 +11,9 @@ export default function RegisterForm() {
     const username = form.username.value;
     const password = form.password.value;
     const payload = { username, password };
-    console.log("Registration payload", payload);
+    // console.log("Registration payload", payload);
     const result = await registerUser(payload);
-    console.log(result);
+    // console.log(result);
   };
   return (
     <>

@@ -20,7 +20,7 @@ export default function ProductAddForm() {
         // const result = await res.json();
         const result = await postSingleData(payload)
         form.reset()
-        console.log(result);
+        // console.log(result);
         router.push('/products')
     }
   return (

@@ -6,7 +6,7 @@ export default function UserInfo() {
 
   
   return (
-    <div>
+    <div className="border-2 ">
           <p>{ JSON.stringify(session)}</p>
     </div>
   );
