@@ -1,4 +1,5 @@
 import dbConnect, { collectionName } from "@/lib/dbConnect";
+import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 export const authOptions = {
   providers: [
@@ -43,7 +44,15 @@ export const authOptions = {
         }
       },
     }),
+     
+  GoogleProvider({
+    clientId: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET
+  })
+
   ],
+
+
   callbacks: {
     async session({ session, token, user }) {
       if (token) {
