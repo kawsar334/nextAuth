@@ -1,6 +1,8 @@
 import dbConnect, { collectionName } from "@/lib/dbConnect";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
+import GitHubProvider from "next-auth/providers/github";
+
 export const authOptions = {
   providers: [
     CredentialsProvider({
@@ -28,7 +30,9 @@ export const authOptions = {
         // Add logic here to look up the user from the credentials supplied
 
         const { username, password } = credentials;
-        const user = await dbConnect(collectionName.TEST_USER).findOne({ username });
+        const user = await dbConnect(collectionName.TEST_USER).findOne({
+          username,
+        });
         const isPasswordOK = password == user?.password;
 
         // const user = { id: "1", name: "J Smith", email: "jsmith@example.com" };
@@ -44,14 +48,16 @@ export const authOptions = {
         }
       },
     }),
-     
-  GoogleProvider({
-    clientId: process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET
-  })
 
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    }),
+    GitHubProvider({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET,
+    }),
   ],
-
 
   callbacks: {
     async session({ session, token, user }) {
