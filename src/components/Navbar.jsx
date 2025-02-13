@@ -9,7 +9,7 @@ const Navbar = () => {
     if(!pathname.includes('dashboard'))
     {
           return (
-            <div className="flex justify-center bg-gray-300">
+            <div className="flex justify-center bg-red-500">
               <ul className="flex justify-between w-1/2  p-4 text-black">
                 <Link href="/">
                   <li>Home</li>
