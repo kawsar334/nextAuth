@@ -4,10 +4,11 @@ import { useSession } from "next-auth/react";
 export default function UserInfo() {
   const session = useSession();
 
+  const userInfo = JSON.stringify(session)
   
   return (
     <div className="border-2 ">
-          <p>{ JSON.stringify(session)}</p>
+          {userInfo?.data ?(<p>{userInfo}</p>) :(<p>You are Not authenticated  </p>)}
     </div>
   );
 }

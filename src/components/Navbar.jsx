@@ -5,12 +5,14 @@ import { usePathname } from "next/navigation";
 
 const Navbar = () => {
     const pathname = usePathname();
-    // console.log(pathname, pathname.includes('dashboard'));
     if(!pathname.includes('dashboard'))
     {
           return (
-            <div className="flex justify-center bg-gray-300">
-              <ul className="flex justify-between w-1/2  p-4 text-black">
+            <div className="flex justify-between items-center px-10 py-3  sticky  w-full top-0 left-0 z-50  bg-teal">
+              <div className="">
+              <Link href="/">Logo</Link>
+              </div>
+              <ul className="flex justify-between flex-col md:flex-row  absolute md:static left-0 top-10 bg-teal w-full   md:w-1/2  p-4 text-white">
                 <Link href="/">
                   <li>Home</li>
                 </Link>
@@ -33,10 +35,15 @@ const Navbar = () => {
                   <li>Register</li>
                 </Link>
               </ul>
+
+              <span className="text-xl font-semibold cursor-pointer  md:hidden ">Menu</span>
             </div>
           );
     } else {
-        return <></>
+        return <>  
+        
+        Hi there 
+        </>
   }
 };
 

@@ -42,24 +42,25 @@ export default async function MealsPage({searchParams}) {
   return (
     <div className="">
  
-      <MealSearchInput></MealSearchInput>
+      <MealSearchInput/>
       
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid md:grid-cols-3  gap-4 p-5 w-[85%] mx-auto ">
         {meals?.map((singleMeal) => {
           return (
-            <div key={singleMeal.idMeal} className={`${roboto.className}`}>
+            <Link href={`/meals/${singleMeal.idMeal}`} key={singleMeal.idMeal} className={`${roboto.className}`}>
               <Image
                 src={singleMeal.strMealThumb}
-                width={640}
-                height={640}
+                width={350}
+                height={300}
                 alt=""
+                className="rounded-t"
               />
-              <p>{singleMeal?.strMeal}</p>
-              <p>{singleMeal?.strInstructions}</p>
-              <Link href={`/meals/${singleMeal.idMeal}`}>
-                <button className="bg-blue-300 p-2">Details</button>
+              <p className="text-2xl font-semibold  my-2 text-teal">{singleMeal?.strMeal}</p>
+              <p className="text-[14px]  my-2">{singleMeal?.strInstructions.slice(0,200)}...</p>
+              <Link href={`/meals/${singleMeal.idMeal}`} className="w-full text-center text-white font-semibold bg-teal block">
+                <button className="bg-blue-300 p-2 ">Details</button>
               </Link>
-            </div>
+            </Link>
           );
         })}
       </div>

@@ -36,9 +36,9 @@ export default function RootLayout({ children }) {
         // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <NextAuthSessionProvider>
-          <nav>
+     
             <Navbar />
-          </nav>
+         
           <main>{children}</main>
         </NextAuthSessionProvider>
       </body>
