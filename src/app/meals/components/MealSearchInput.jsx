@@ -16,9 +16,10 @@ export default function MealSearchInput() {
   return (
     <div className="flex justify-center mt-4">
       <input
-        className="text-black border-2 "
+        className="text-black  border-[1px]  px-2  rounded py-2  focus:border-teal focus:outline-none"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
+        placeholder="Search "
       />
     </div>
   );
