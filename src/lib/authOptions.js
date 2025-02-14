@@ -5,6 +5,7 @@ import GitHubProvider from "next-auth/providers/github";
 import { signIn } from "next-auth/react";
 
 export const authOptions = {
+  secret:process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
       // The name to display on the sign in form (e.g. "Sign in with...")
